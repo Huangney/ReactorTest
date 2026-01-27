@@ -38,6 +38,18 @@
 MDK-ARM/.vscode/
 build/
 .cache/
-.vscode/
+
+# 忽略CubeMX生成的所有文件
+/Middlewares/
+/Drivers/
+/cmake/
+/Core/
+/MDK-ARM/
+.mxproject
+CMakeLists.txt
+CMakePresets.json
+*.ioc
+*.s
+*.ld
 
 MDK-ARM/RTE/_GeneralFramework/RTE_Components.h

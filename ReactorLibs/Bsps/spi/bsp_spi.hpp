@@ -29,6 +29,14 @@ namespace BSP
             void Receive(uint8_t* rx_data, uint16_t size);
             void TransRecv(uint8_t* tx_data, uint8_t* rx_data, uint16_t size);
             
+            void TransmitDMA(uint8_t* tx_data, uint16_t size);
+            void ReceiveDMA(uint8_t* rx_data, uint16_t size);
+            void TransRecvDMA(uint8_t* tx_data, uint8_t* rx_data, uint16_t size);
+
+            void Select();
+            void Deselect();
+            
+
             SpiID spi_id;
 
         private:

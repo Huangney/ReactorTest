@@ -1,6 +1,8 @@
 # 这里的 ${PROJECT_SOURCE_DIR} 指的是CubeMX的那个 .ioc 文件所在的根目录
 # 递归寻找所有 .h 和 .hpp 文件
-file(GLOB_RECURSE ALL_HEADERS CONFIGURE_DEPENDS
+# 不使用 CONFIGURE_DEPENDS，避免每次 build 前都递归重扫目录
+# 当新增/重排库文件后，手动执行一次: cmake --preset Debug
+file(GLOB_RECURSE ALL_HEADERS
     "${CMAKE_CURRENT_LIST_DIR}/*.h" 
     "${CMAKE_CURRENT_LIST_DIR}/*.hpp"
 )

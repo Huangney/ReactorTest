@@ -17,6 +17,11 @@ namespace Hardware
     BSP::UART::UartID huart_odom = nullptr;
     BSP::UART::UartID huart_other = nullptr;
 
+    /**-----    配置SPI总线    -----**/
+    BSP::SPI::SpiID spi_main_bus = nullptr;
+    BSP::SPI::SpiID spi_imu_bus = nullptr;
+    BSP::SPI::SpiID spi_ext_bus = nullptr;
+
     /**-----    配置定时器    -----**/
     TIM_HandleTypeDef* htim_led = nullptr;
 

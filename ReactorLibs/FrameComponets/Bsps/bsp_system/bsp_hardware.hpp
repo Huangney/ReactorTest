@@ -1,6 +1,7 @@
 #pragma once
 #include "bsp_uart.hpp"
 #include "bsp_can.hpp"
+#include "bsp_spi.hpp"
 
 namespace Hardware
 {
@@ -19,6 +20,14 @@ namespace Hardware
     extern BSP::CAN::CanID hcan_main;
     /// @brief 框架所用CAN句柄
     extern BSP::CAN::CanID hcan_sub;
+
+    /***---------------     框架SPI总线    ---------------***/
+    /// @brief 主 SPI 总线
+    extern BSP::SPI::SpiID spi_main_bus;
+    /// @brief IMU SPI 总线
+    extern BSP::SPI::SpiID spi_imu_bus;
+    /// @brief 扩展 SPI 总线
+    extern BSP::SPI::SpiID spi_ext_bus;
 
     
 }

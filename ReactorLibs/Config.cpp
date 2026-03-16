@@ -17,6 +17,11 @@ void Hardware::Config_Hardwares()
     Hardware::huart_odom = reinterpret_cast<BSP::UART::UartID>(&huart6);
     Hardware::huart_other = nullptr;
 
+    /**-----    配置SPI总线    -----**/
+    Hardware::spi_main_bus = nullptr;
+    Hardware::spi_imu_bus = nullptr;
+    Hardware::spi_ext_bus = nullptr;
+
     /**-----    配置定时器    -----**/
     Hardware::htim_led = nullptr;
 

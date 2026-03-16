@@ -46,6 +46,7 @@ public:
   // 友元函数重载运算符
   friend Vec2 operator+(const Vec2 &lhs, const Vec2 &rhs);
   friend Vec2 operator-(const Vec2 &lhs, const Vec2 &rhs);
+  friend float operator*(const Vec2 &lhs, const Vec2 &rhs);
   friend Vec2 operator*(const Vec2 &vec, float scalar);
   friend Vec2 operator*(float scalar, const Vec2 &vec);
   friend Vec2 operator/(const Vec2 &vec, float scalar);
@@ -60,6 +61,10 @@ inline Vec2 operator+(const Vec2 &lhs, const Vec2 &rhs)
 inline Vec2 operator-(const Vec2 &lhs, const Vec2 &rhs)
 { // 向量减法
   return Vec2(lhs.x - rhs.x, lhs.y - rhs.y);
+}
+inline float operator*(const Vec2 &lhs, const Vec2 &rhs)
+{ // 向量点乘
+  return lhs.x * rhs.x + lhs.y * rhs.y;
 }
 inline Vec2 operator*(const Vec2 &vec, float scalar)
 { // 向量数乘（向量在前）
@@ -110,6 +115,8 @@ public:
   // 友元函数重载运算符
   friend Vec3 operator+(const Vec3 &lhs, const Vec3 &rhs);
   friend Vec3 operator-(const Vec3 &lhs, const Vec3 &rhs);
+  friend float operator*(const Vec3 &lhs, const Vec3 &rhs);
+  friend Vec3 operator^(const Vec3 &lhs, const Vec3 &rhs);
   friend Vec3 operator*(const Vec3 &vec, float scalar);
   friend Vec3 operator*(float scalar, const Vec3 &vec);
   friend Vec3 operator/(const Vec3 &vec, float scalar);
@@ -122,6 +129,16 @@ inline Vec3 operator+(const Vec3 &lhs, const Vec3 &rhs)
 inline Vec3 operator-(const Vec3 &lhs, const Vec3 &rhs)
 {
   return Vec3(lhs.x - rhs.x, lhs.y - rhs.y, lhs.z - rhs.z);
+}
+inline float operator*(const Vec3 &lhs, const Vec3 &rhs)
+{ // 向量点乘
+  return lhs.x * rhs.x + lhs.y * rhs.y + lhs.z * rhs.z;
+}
+inline Vec3 operator^(const Vec3 &lhs, const Vec3 &rhs)
+{ // 向量叉乘
+  return Vec3(lhs.y * rhs.z - lhs.z * rhs.y,
+              lhs.z * rhs.x - lhs.x * rhs.z,
+              lhs.x * rhs.y - lhs.y * rhs.x);
 }
 inline Vec3 operator*(const Vec3 &vec, float scalar)
 { // 向量数乘（向量在前）
@@ -257,6 +274,18 @@ float RadSToRpm(float rad_s);
 /// @param val 目标值
 /// @param limit 限幅值
 float fclamp(float val, float limit);
+
+/// @brief 通用限幅函数
+/// @param val 目标值
+/// @param min_val 下限
+/// @param max_val 上限
+float fclamp(float val, float min_val, float max_val);
+
+/// @brief 三维向量叉乘
+/// @param a 向量a
+/// @param b 向量b
+/// @return a x b
+Vec3 Cross3(const Vec3 &a, const Vec3 &b);
 
 /// @brief 符号函数
 /// @param val 目标值

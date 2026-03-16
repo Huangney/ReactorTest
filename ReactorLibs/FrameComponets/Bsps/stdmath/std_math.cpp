@@ -158,10 +158,37 @@ float StdMath::RadSToRpm(float rad_s)
 
 float StdMath::fclamp(float val, float limit)
 {
-    if (limit <= 0.0f)  return val;         // 0代表不限制
-    if (val > limit)    return limit;
-    if (val < -limit)   return -limit;
-    return val;
+  if (limit <= 0.0f)
+  {
+    return val; // 0代表不限制
+  }
+  if (val > limit)
+  {
+    return limit;
+  }
+  if (val < -limit)
+  {
+    return -limit;
+  }
+  return val;
+}
+
+float StdMath::fclamp(float val, float min_val, float max_val)
+{
+  if (val > max_val)
+  {
+    return max_val;
+  }
+  if (val < min_val)
+  {
+    return min_val;
+  }
+  return val;
+}
+
+Vec3 StdMath::Cross3(const Vec3 &a, const Vec3 &b)
+{
+  return a ^ b;
 }
 
 int StdMath::signf(float val)
